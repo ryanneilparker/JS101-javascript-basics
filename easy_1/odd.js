@@ -3,12 +3,12 @@ Log all odd numbers from 1 to 99, inclusive, to the console, with each number on
 
 PROBLEM
 inputs: none
-ouputs: print all nums from 1..99
+ouputs: print all odd nums from 1..99
 req: inclusive
 */
 
 function printNums() {
-  for(let i = 1; i <= 99; i++) {
+  for(let i = 1; i <= 99; i += 2) {
     console.log(i);
   }
 }
