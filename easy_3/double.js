@@ -28,7 +28,7 @@ function crunch(input) {
   newChars = [];
 
   for(let i = 1; i <= chars.length; i ++) {
-    if(chars[i] != chars[i-1]) {
+    if(chars[i] != chars[i - 1]) {
       newChars.push(chars[i - 1]);
     }
   }
