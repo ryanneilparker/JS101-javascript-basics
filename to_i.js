@@ -33,7 +33,7 @@ return the number
 */
 
 function stringToInteger(input) {
-  str2int = {
+  const str2int = {
     '1': 1,
     '2': 2,
     '3': 3,
@@ -47,23 +47,31 @@ function stringToInteger(input) {
   }
 
   let chars = Array.from(input);
+  let sign = 1;
 
-  //console.log(chars);
+  if (chars[0] === '+') {
+    sign = 1;
+    chars.shift();
+  } else if (chars[0] === '-') {
+    sign = -1;
+    chars.shift();
+  }
 
   let digits = chars.map(digit => {
     return str2int[digit];
   })
-
-  //console.log(digits);
   
   let nums = digits.map((num, index) => {
     return num * Math.pow(10, digits.length - 1 - index);
   })
 
-  return nums.reduce((accumulator, num) => {
+  return sign * nums.reduce((accumulator, num) => {
     return accumulator + num;
   })
 }
 
 console.log(stringToInteger("4321") === 4321); // logs true
 console.log(stringToInteger("570") === 570); // logs true
+console.log(stringToInteger("4321") === 4321); // logs true
+console.log(stringToInteger("-570") === -570); // logs true
+console.log(stringToInteger("+100") === 100); // logs true
